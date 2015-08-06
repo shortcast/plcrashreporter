@@ -29,7 +29,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "05CD32680EE93DC3000FDE88"
-               BuildableName = "Tests-MacOSX.octest"
+               BuildableName = "Tests-MacOSX.xctest"
                BlueprintName = "Tests-MacOSX"
                ReferencedContainer = "container:CrashReporter.xcodeproj">
             </BuildableReference>
@@ -47,7 +47,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "05CD32680EE93DC3000FDE88"
-               BuildableName = "Tests-MacOSX.octest"
+               BuildableName = "Tests-MacOSX.xctest"
                BlueprintName = "Tests-MacOSX"
                ReferencedContainer = "container:CrashReporter.xcodeproj">
             </BuildableReference>
