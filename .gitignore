@@ -1,2 +1,3 @@
 build/
+libCrashReporter.a
 .DS_Store
