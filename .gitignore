@@ -1,3 +1,4 @@
 build/
 libCrashReporter.a
 .DS_Store
+CrashReporter.xcodeproj/project.xcworkspace/xcuserdata/
