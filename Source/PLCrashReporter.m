@@ -379,6 +379,7 @@ static void uncaught_exception_handler (NSException *exception) {
 - (plcrash_async_symbol_strategy_t) mapToAsyncSymbolicationStrategy: (PLCrashReporterSymbolicationStrategy) strategy;
 
 - (BOOL) populateCrashReportDirectoryAndReturnError: (NSError **) outError;
+- (BOOL) destroyCrashReportDirectoryAndReturnError: (NSError **) outError;
 - (NSString *) crashReportDirectory;
 - (NSString *) queuedCrashReportDirectory;
 - (NSString *) crashReportPath;
@@ -658,6 +659,9 @@ static PLCrashReporter *sharedReporter = nil;
         // Destroy listeners
         [PLCrashSignalHandler resetHandlers];
         _enabled = NO;
+        
+        // Destroy filepath
+        [self destroyCrashReportDirectoryAndReturnError:nil];
         
         // Successful disabling
         return YES;
@@ -1058,6 +1062,13 @@ cleanup:
     }
 
     return YES;
+}
+
+/**
+ *
+ */
+- (BOOL) destroyCrashReportDirectoryAndReturnError: (NSError **) outError {
+    return [[NSFileManager defaultManager] removeItemAtPath:[self crashReportDirectory] error:outError];
 }
 
 /**
