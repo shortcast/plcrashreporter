@@ -553,18 +553,20 @@ static PLCrashReporter *sharedReporter = nil;
      * well as our legacy approach of deregistering any signal handlers upon the first signal. Once PLCrashUncaughtExceptionHandler is
      * implemented, and we support double-fault handling without resetting the signal handlers, we can support chaining of multiple
      * crash reporters. */
-    {
-        static BOOL enforceOne = NO;
-        pthread_mutex_t enforceOneLock = PTHREAD_MUTEX_INITIALIZER;
-        pthread_mutex_lock(&enforceOneLock); {
-            if (enforceOne) {
-                pthread_mutex_unlock(&enforceOneLock);
-                plcrash_populate_error(outError, PLCrashReporterErrorResourceBusy, @"A PLCrashReporter instance has already been enabled", nil);
-                return NO;
-            }
-            enforceOne = YES;
-        } pthread_mutex_unlock(&enforceOneLock);
-    }
+    
+    // No longer want a mutex lock on this.
+//    {
+//        static BOOL enforceOne = NO;
+//        pthread_mutex_t enforceOneLock = PTHREAD_MUTEX_INITIALIZER;
+//        pthread_mutex_lock(&enforceOneLock); {
+//            if (enforceOne) {
+//                pthread_mutex_unlock(&enforceOneLock);
+//                plcrash_populate_error(outError, PLCrashReporterErrorResourceBusy, @"A PLCrashReporter instance has already been enabled", nil);
+//                return NO;
+//            }
+//            enforceOne = YES;
+//        } pthread_mutex_unlock(&enforceOneLock);
+//    }
 
     /* Check for programmer error */
     if (_enabled)
