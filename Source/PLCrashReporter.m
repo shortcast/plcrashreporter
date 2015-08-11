@@ -642,6 +642,32 @@ static PLCrashReporter *sharedReporter = nil;
 }
 
 /**
+ * Disable the crash reporter. Once called, all application crashes will
+ * no longer be written prior to application exit, and the application will fail silently
+ *
+ * This method may be invoked more than once. Further invocations will return NO
+ *
+ * @return Returns YES on success, or NO if the crash reporter was already disabled
+ * (or never enabled)
+ *
+ */
+
+- (BOOL) disableCrashReporter {
+    
+    if (_enabled) {
+        // Destroy listeners
+        [PLCrashSignalHandler resetHandlers];
+        _enabled = NO;
+        
+        // Successful disabling
+        return YES;
+    }
+    
+    // Was not enabled
+    return NO;
+}
+
+/**
  * Generate a live crash report for a given @a thread, without triggering an actual crash condition.
  * This may be used to log current process state without actually crashing. The crash report data will be
  * returned on success.
