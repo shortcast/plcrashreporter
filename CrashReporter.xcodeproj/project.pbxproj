@@ -758,8 +758,6 @@
 		2D0E104C1141F7DC00CE1BD6 /* PLCrashReportProcessInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D0E10441141F7DC00CE1BD6 /* PLCrashReportProcessInfo.h */; };
 		2D0E104D1141F7DC00CE1BD6 /* PLCrashReportProcessInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E10451141F7DC00CE1BD6 /* PLCrashReportProcessInfo.m */; };
 		2D0E104E1141F7DC00CE1BD6 /* PLCrashReportProcessInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D0E10441141F7DC00CE1BD6 /* PLCrashReportProcessInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8AD571751B87AEA300C1B650 /* PLCrashLogReaderDecoding.c in Sources */ = {isa = PBXBuildFile; fileRef = 8AD571741B87AEA300C1B650 /* PLCrashLogReaderDecoding.c */; };
-		8AD571791B87C56300C1B650 /* PLCrashLogReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AD571781B87C56300C1B650 /* PLCrashLogReader.m */; };
 		C21688F916445344000F90ED /* PLCrashAsyncMachOStringTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C21688F816445344000F90ED /* PLCrashAsyncMachOStringTests.m */; };
 		C21688FA16445344000F90ED /* PLCrashAsyncMachOStringTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C21688F816445344000F90ED /* PLCrashAsyncMachOStringTests.m */; };
 		C21688FB16445344000F90ED /* PLCrashAsyncMachOStringTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C21688F816445344000F90ED /* PLCrashAsyncMachOStringTests.m */; };
@@ -1318,10 +1316,6 @@
 		0867D69BFE84028FC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		2D0E10441141F7DC00CE1BD6 /* PLCrashReportProcessInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLCrashReportProcessInfo.h; sourceTree = "<group>"; };
 		2D0E10451141F7DC00CE1BD6 /* PLCrashReportProcessInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLCrashReportProcessInfo.m; sourceTree = "<group>"; };
-		8AD571731B87ADDA00C1B650 /* PLCrashLogReaderDecoding.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLCrashLogReaderDecoding.h; sourceTree = "<group>"; };
-		8AD571741B87AEA300C1B650 /* PLCrashLogReaderDecoding.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = PLCrashLogReaderDecoding.c; sourceTree = "<group>"; };
-		8AD571771B87B8FA00C1B650 /* PLCrashLogReader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLCrashLogReader.h; sourceTree = "<group>"; };
-		8AD571781B87C56300C1B650 /* PLCrashLogReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLCrashLogReader.m; sourceTree = "<group>"; };
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8DC2EF5B0486A6940098B216 /* CrashReporter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CrashReporter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C21688F816445344000F90ED /* PLCrashAsyncMachOStringTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLCrashAsyncMachOStringTests.m; sourceTree = "<group>"; };
@@ -1648,7 +1642,6 @@
 		059672EF0EF0853A008A0601 /* Private API */ = {
 			isa = PBXGroup;
 			children = (
-				8AD571761B87B46300C1B650 /* Crash Log Reader */,
 				05BB3E0A17F61A6E00F464E9 /* PLCrashCompatConstants.h */,
 				0573B4281681097200395F2A /* Mach Exception Server */,
 				05BB84AE1364F5BC00D53B84 /* Signal Handler */,
@@ -2125,17 +2118,6 @@
 				05614E111A965A6100D62442 /* SenTestCompat.h */,
 			);
 			path = "Other Sources";
-			sourceTree = "<group>";
-		};
-		8AD571761B87B46300C1B650 /* Crash Log Reader */ = {
-			isa = PBXGroup;
-			children = (
-				8AD571731B87ADDA00C1B650 /* PLCrashLogReaderDecoding.h */,
-				8AD571741B87AEA300C1B650 /* PLCrashLogReaderDecoding.c */,
-				8AD571771B87B8FA00C1B650 /* PLCrashLogReader.h */,
-				8AD571781B87C56300C1B650 /* PLCrashLogReader.m */,
-			);
-			name = "Crash Log Reader";
 			sourceTree = "<group>";
 		};
 		FCE4576E42A51370AD81A734 /* Stack Frame Unwind */ = {
@@ -3316,7 +3298,6 @@
 				05EB2AFD15B456750066EB4D /* PLCrashAsyncThread_current.c in Sources */,
 				05EB2B1315B6FDA80066EB4D /* PLCrashReporterNSError.m in Sources */,
 				05F76DD3162F213E00A668C7 /* PLCrashAsyncMachOImage.c in Sources */,
-				8AD571791B87C56300C1B650 /* PLCrashLogReader.m in Sources */,
 				05DEE63F1636E62B007E99DC /* PLCrashAsyncMObject.c in Sources */,
 				C2198DD91640188C006EB46A /* PLCrashAsyncObjCSection.mm in Sources */,
 				C26022861642FCA6007FC29F /* PLCrashAsyncSymbolication.c in Sources */,
@@ -3346,7 +3327,6 @@
 				0527062F17CBCCA100E6A5D8 /* PLCrashMachExceptionPort.m in Sources */,
 				05BEC41B17BAF92A0082CBFB /* PLCrashMachExceptionPortSet.m in Sources */,
 				05BEC42617BD4F290082CBFB /* PLCrashAsyncMachExceptionInfo.c in Sources */,
-				8AD571751B87AEA300C1B650 /* PLCrashLogReaderDecoding.c in Sources */,
 				05BEC43A17BF1CB10082CBFB /* PLCrashReporterConfig.m in Sources */,
 				05A5E28817C04188008A75E5 /* PLCrashAsyncLinkedList.cpp in Sources */,
 				05B929EC17C9336600B051E3 /* PLCrashUncaughtExceptionHandler.m in Sources */,
